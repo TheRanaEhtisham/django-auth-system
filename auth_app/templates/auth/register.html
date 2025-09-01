@@ -1,0 +1,33 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+<div class="container mt-3">
+  <h2>Register</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{form.username.id_for_label}}">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+      <span class="text-danger">{{ form.username.errors }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="{{form.password1.id_for_label}}">Password:</label>
+      <input type="password" class="form-control" id="password1" placeholder="Enter password" name="password1">
+      <span class="text-danger">{{ form.password1.errors }}</span>
+    </div>
+    <div class="form-group">
+      <label for="{{form.password2.id_for_label}}">Confirm Password:</label>
+      <input type="password" class="form-control" id="password2" placeholder="Confirm password" name="password2">
+      <span class="text-danger">{{ form.password2.errors }}</span>
+    </div>
+
+   
+
+
+    <button type="submit" class="btn btn-dark">Register</button>
+  </form>   
+    <br>
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock %}
